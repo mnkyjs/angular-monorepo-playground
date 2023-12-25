@@ -1,0 +1,33 @@
+<div class="w-full flex flex-col items-center gap-8 p-8">
+  @if (pokedex$ | async; as pokedex) {
+  <div class="flex gap-2">
+    @if (pokedex.previous) {
+    <div class="flex justify-center items-center gap-4">
+      <button
+        class="bg-neutral-600 border border-gray-500 text-neutral-200 text-sm rounded-lg block w-full p-2.5"
+        (click)="load(pokedex.previous)"
+      >
+        Load previous
+      </button>
+    </div>
+    } @if (pokedex.next) {
+    <div class="flex justify-center items-center gap-4">
+      <button
+        class="bg-neutral-600 border border-gray-500 text-neutral-200 text-sm rounded-lg block w-full p-2.5"
+        (click)="load(pokedex.next)"
+      >
+        Load more
+      </button>
+    </div>
+    }
+  </div>
+
+  <div
+    class="grid grid-cols-2 mt-8 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8 gap-8"
+  >
+    @for (pokemon of pokedex?.results; track pokemon.name) {
+    <px-card [pokemon]="pokemon"></px-card>
+    }
+  </div>
+  }
+</div>
