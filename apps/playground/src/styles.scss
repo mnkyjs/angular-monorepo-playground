@@ -3,9 +3,30 @@
 @tailwind utilities;
 
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --px-skeleton-end-background: hsl(200, 20%, 80%);
+  --px-skeleton-start-background: hsl(200, 20%, 70%);
+}
+
 html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+.px-skeleton {
+  height: 100%;
+  width: 100%;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: var(--px-skeleton-end-background);
+  }
+  100% {
+    background-color: var(--px-skeleton-start-background);
+  }
 }
