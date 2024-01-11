@@ -21,4 +21,10 @@ export class MapComponent {
     zoom: 5,
     center: latLng(46.879966, -121.726909),
   };
+
+  onMapReady() {
+    setTimeout(() => {
+      document.getElementById('loading-indicator')?.remove();
+    }, 1000);
+  }
 }
