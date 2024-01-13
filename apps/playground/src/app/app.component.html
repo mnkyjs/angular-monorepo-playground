@@ -11,8 +11,15 @@
 </div>
 
 <div class="h-92">
+  @defer {
+  <px-map />
+  } @placeholder {
+  <p>Check out the geo data information with Leaflet</p>
+  } @loading {
   <div id="loading-indicator" class="px-skeleton absolute z-10"></div>
-  <ng-container #map></ng-container>
+  } @error {
+  <p>Something went wrong</p>
+  }
 </div>
 
 <footer class="fixed bottom-0 w-full z-10 p-3 bg-neutral-900 text-neutral-300">
