@@ -13,4 +13,11 @@ export const appRoutes: Route[] = [
         './pokedex/feature/pokemon-overview/pokemon-overview.component'
       ).then((c) => c.PokemonOverviewComponent),
   },
+  {
+    path: 'chart-view',
+    loadComponent: () =>
+      import('./chart/feature/chart-view.component').then(
+        (c) => c.ChartViewComponent
+      ),
+  },
 ];

@@ -1,0 +1,62 @@
+<div class="p-2 h-full">
+  <!--    There are two types of @defer triggers:-->
+  <!--    on (declarative) — uses one of the available behaviors (see bellow)-->
+  <!--    immediate — the component lazy loading is triggered immediately during the parent component template execution-->
+  <!--    idle — (default) Angular will lazy load the component on the first available requestIdleCallback (browser API) which allows us to perform background and low priority work on the main event loop-->
+  <!--    timer(delay) — after a specified delay-->
+  <!--    viewport (target) — when the @placeholder (described below) or optional target are in the viewport (detected using browser IntersectionObserver API)-->
+  <!--    hover (target?) — when the @placeholder or optional target are hovered by the user, for this purpose Angular considers the mouseenter and focusin DOM events-->
+  <!--    interaction (target?) — when the @placeholder or optional target are interacted with by the user, for this purpose Angular considers the click and keydown DOM events-->
+
+  <!--    when (imperative) — uses any custom logic that returns true or false
+                  (eg component property or method, Signal, RxJs stream, …-->
+  <!--    outcome of some async processing — show success page (or next step) once the form was submitted successfully-->
+  <!--    step in some process — load the next step once the previous step was finalized-->
+  <!--    outcome of a calculation — show additional info if the value of the offer reached some threshold-->
+  <!--    and many other — let me know in the comments what are the use cases which you think will be a great fit for the when trigger and I will add them to this list 😉-->
+
+  <button #hint class="button">Click me</button>
+  @defer (on interaction(hint)) {
+  <px-chart />
+  } @placeholder {
+  <p>A secret pokemon is loading...</p>
+  } @loading {
+  <div class="px-skeleton"></div>
+  } @error {
+  <p>Something went wrong</p>
+  }
+
+  <!--  declarative trigger  -->
+  <!--  @defer (on timer(1000)) {-->
+  <!--    <px-chart />-->
+  <!--  } @placeholder {-->
+  <!--  <p>A secret pokemon is loading...</p>-->
+  <!--  } @loading {-->
+  <!--  <div class="px-skeleton"></div>-->
+  <!--  } @error {-->
+  <!--  <p>Something went wrong</p>-->
+  <!--  }-->
+
+  <!--  <button class="btn mb-3" (click)="loadChart = true">Load</button>-->
+  <!--  @defer (on hover; prefetch when loadChart) {-->
+  <!--  <px-chart />-->
+  <!--  } @placeholder {-->
+  <!--  <p>A secret pokemon is loading...</p>-->
+  <!--  } @loading (minimum 500ms) {-->
+  <!--  <div class="px-skeleton"></div>-->
+  <!--  } @error {-->
+  <!--  <p>Something went wrong</p>-->
+  <!--  }-->
+
+  <!--  imperative trigger  -->
+  <!--  <button class="btn mb-3" (click)="loadChart = true">Load</button>-->
+  <!--  @defer (when loadChart) {-->
+  <!--  <px-chart />-->
+  <!--  } @placeholder {-->
+  <!--  <p>A secret pokemon is loading...</p>-->
+  <!--  } @loading {-->
+  <!--  <div class="px-skeleton"></div>-->
+  <!--  } @error {-->
+  <!--  <p>Something went wrong</p>-->
+  <!--  }-->
+</div>
