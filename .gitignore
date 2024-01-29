@@ -40,3 +40,6 @@ Thumbs.db
 
 .nx/cache
 .angular
+/apps/supabase-auth-flow/android/
+/apps/supabase-auth-flow/ios/
+apps/supabase-auth-flow/src/app/shared/util-supabase-client/config/supabase-config.ts
