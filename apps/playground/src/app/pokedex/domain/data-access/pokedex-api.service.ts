@@ -6,24 +6,23 @@ import { Pokemon } from '../models/pokemon';
 
 @Injectable({ providedIn: 'root' })
 export class PokedexApiService {
-  readonly httpClient = inject(HttpClient);
+    readonly httpClient = inject(HttpClient);
 
-  private data$: BehaviorSubject<PokedexResponse | null> =
-    new BehaviorSubject<PokedexResponse | null>(null);
+    private data$: BehaviorSubject<PokedexResponse | null> = new BehaviorSubject<PokedexResponse | null>(null);
 
-  readonly pokedex$ = this.data$.asObservable();
+    readonly pokedex$ = this.data$.asObservable();
 
-  constructor() {
-    this.loadData('https://pokeapi.co/api/v2/pokemon');
-  }
+    constructor() {
+        this.loadData('https://pokeapi.co/api/v2/pokemon');
+    }
 
-  loadData(url: string) {
-    this.httpClient.get<PokedexResponse>(url).subscribe({
-      next: (data) => this.data$.next(data),
-    });
-  }
+    loadData(url: string) {
+        this.httpClient.get<PokedexResponse>(url).subscribe({
+            next: (data) => this.data$.next(data),
+        });
+    }
 
-  getPokemon(url: string): Observable<Pokemon> {
-    return this.httpClient.get<Pokemon>(url);
-  }
+    getPokemon(url: string): Observable<Pokemon> {
+        return this.httpClient.get<Pokemon>(url);
+    }
 }

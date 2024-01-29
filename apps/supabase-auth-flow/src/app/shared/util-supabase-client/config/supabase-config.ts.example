@@ -1,0 +1,9 @@
+export interface SupabaseConfig {
+    url: string;
+    apiKey: string;
+}
+
+export const supabaseConfig: SupabaseConfig = {
+    url: '',
+    apiKey: '',
+}
