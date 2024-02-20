@@ -1,0 +1,62 @@
+<form
+    class="p-8 flex flex-col flex-nowrap max-w-xl mx-auto md:justify-center"
+    [formGroup]="form"
+    (submit)="onSubmit()">
+    <h1 class="text-3xl font-bold mb-4">Sign In</h1>
+    <p class="mb-12">Sign in to your account to continue.</p>
+
+    <div
+        *ngIf="authError"
+        class="text-red-500 font-jockeyone whitespace-pre-line">
+        An error occurred while signing in
+    </div>
+
+    <div class="form-control w-full mb-4">
+        <label class="label">
+            <span class="label-text"> Email </span>
+        </label>
+        <input
+            type="email"
+            placeholder="max.mustermann@muster.io"
+            class="input input-bordered w-full"
+            [formControl]="form.controls.email" />
+    </div>
+
+    <div
+        class="form-control w-full mb-4"
+        style="position: relative">
+        <label class="label">
+            <span class="label-text"> Password </span>
+        </label>
+        <input
+            placeholder="********"
+            class="input input-bordered w-full"
+            [type]="showPassword ? 'text' : 'password'"
+            [formControl]="form.controls.password" />
+        <button
+            type="button"
+            class="toggle-password"
+            aria-label="Show password"
+            style="position: absolute; right: 0.5em; top: 60%"
+            (click)="toggleShowPassword()">
+            <i
+                class="pi"
+                [class]="showPassword ? 'pi-eye-slash' : 'pi-eye'"></i>
+        </button>
+    </div>
+
+    <button
+        class="btn btn-primary w-full mb-4 mt-auto md:mt-0"
+        [type]="'submit'"
+        [disabled]="form.invalid">
+        Sign In
+    </button>
+    <br />
+    <p class="text-xs text-center mb-4">
+        <a
+            class="link"
+            routerLink="/get-email-password-reset">
+            Forgot your password?
+        </a>
+    </p>
+</form>

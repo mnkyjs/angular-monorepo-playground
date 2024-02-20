@@ -1,0 +1,11 @@
+<button
+    class="btn btn-ghost"
+    routerLink="/">
+    Back
+</button>
+
+@if (user$ | async; as user) {
+    <div>
+        <h1>{{ user.data.user?.identities | json }}</h1>
+    </div>
+}

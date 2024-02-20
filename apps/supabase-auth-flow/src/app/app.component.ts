@@ -16,14 +16,10 @@ export class AppComponent {
     ) {
         App.addListener('appUrlOpen', async (data) => {
             this.zone.run(() => {
-                const urlObject = new URL(data.url);
-                const accessKey = urlObject.searchParams.get('accessKey');
                 const redirectTo = data.url.slice(data.url.lastIndexOf('//') + 1);
 
                 if (redirectTo.startsWith('/password-reset')) {
                     this.router.navigateByUrl(redirectTo);
-                } else if (accessKey) {
-                    console.log('accessKey', accessKey);
                 }
             });
         });
