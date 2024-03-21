@@ -1,0 +1,46 @@
+<div class="navbar bg-base-100">
+    <div class="flex-1">
+        <a class="btn btn-ghost normal-case text-xl">Firebase Cloud Messaging</a>
+    </div>
+</div>
+
+<div class="p-4">
+    <div class="card w-full bg-base-100 shadow-xl">
+        <div class="card-body">
+            <h2 class="card-title">About</h2>
+            <p>⚡️ Capacitor plugin for Firebase Cloud Messaging (FCM).</p>
+        </div>
+    </div>
+
+    <div class="card w-full bg-base-100 shadow-xl mt-4">
+        <div class="card-body">
+            <h2 class="card-title">Demo</h2>
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">Token</span>
+                    <input
+                        class="input w-full"
+                        type="text"
+                        readonly
+                        [value]="token" />
+                </label>
+
+                <p>
+                    {{ token }}
+                </p>
+            </div>
+            <div class="card-actions justify-end">
+                <button
+                    class="btn btn-primary"
+                    (click)="requestPermissions()">
+                    Request Permissions
+                </button>
+                <button
+                    class="btn btn-secondary"
+                    (click)="getToken()">
+                    Get Token
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

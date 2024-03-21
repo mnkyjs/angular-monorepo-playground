@@ -1,6 +1,9 @@
 import { Component, NgZone } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { App } from '@capacitor/app';
+import { Capacitor } from '@capacitor/core';
+import { firebaseConfig } from './auth-config';
+import { initializeApp } from 'firebase/app';
 
 @Component({
     standalone: true,
@@ -14,6 +17,8 @@ export class AppComponent {
         private router: Router,
         private zone: NgZone,
     ) {
+        this.initializeFirebase();
+
         App.addListener('appUrlOpen', async (data) => {
             this.zone.run(() => {
                 const redirectTo = data.url.slice(data.url.lastIndexOf('//') + 1);
@@ -23,5 +28,12 @@ export class AppComponent {
                 }
             });
         });
+    }
+
+    public async initializeFirebase(): Promise<void> {
+        if (Capacitor.isNativePlatform()) {
+            return;
+        }
+        initializeApp(firebaseConfig);
     }
 }

@@ -5,3 +5,4 @@
 .angular
 apps/supabase-auth-flow/android
 apps/supabase-auth-flow/ios
+apps/supabase-auth-flow/src/app/auth-config.ts

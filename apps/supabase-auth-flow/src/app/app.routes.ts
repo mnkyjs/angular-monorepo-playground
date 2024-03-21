@@ -22,4 +22,11 @@ export const appRoutes: Route[] = [
         loadComponent: () =>
             import('./auth/feature-request-password/getEmailPasswordReset.component').then((m) => m.GetEmailPasswordResetComponent),
     },
+    {
+        path: 'push-notification-test',
+        loadComponent: () =>
+            import('./push-notifications/push-notification-test-feature/push-notification-test-feature.component').then(
+                (m) => m.PushNotificationTestFeatureComponent,
+            ),
+    },
 ];

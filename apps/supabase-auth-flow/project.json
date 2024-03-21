@@ -16,7 +16,11 @@
                 "polyfills": ["zone.js"],
                 "tsConfig": "apps/supabase-auth-flow/tsconfig.app.json",
                 "inlineStyleLanguage": "scss",
-                "assets": ["apps/supabase-auth-flow/src/favicon.ico", "apps/supabase-auth-flow/src/assets"],
+                "assets": [
+                    "apps/supabase-auth-flow/src/firebase-messaging-sw.js",
+                    "apps/supabase-auth-flow/src/favicon.ico",
+                    "apps/supabase-auth-flow/src/assets"
+                ],
                 "styles": ["apps/supabase-auth-flow/src/styles.scss"],
                 "scripts": []
             },
